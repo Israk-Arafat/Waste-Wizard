@@ -1,7 +1,7 @@
 import React from 'react';
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = ({ isMenuOpen, toggleMenu }) => {
   return (
     <nav className="navbar">
       <div className="navbar-logo-container">
@@ -14,8 +14,8 @@ const Navigation = () => {
       </div>
       <div className="hamburger-menu">
         <div className="dropdown">
-          <button className="hamburger">☰</button>
-          <div className="dropdown-content">
+          <button className="hamburger" onClick={toggleMenu}>☰</button>
+          <div className={`dropdown-content ${isMenuOpen ? 'show-dropdown' : ''}`}>
             <a href="/">Home</a>
             <a href="/rules">Rules</a>
           </div>
