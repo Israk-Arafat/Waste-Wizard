@@ -3,8 +3,10 @@ import './ImageCapture.css';
 
 const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
   const [preview, setPreview] = useState(null);
+  const [capturedFile, setCapturedFile] = useState(null);
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   const [stream, setStream] = useState(null);
+  const [captureMethod, setCaptureMethod] = useState(null); // 'camera' or 'upload'
   const cameraInputRef = useRef(null);
   const uploadInputRef = useRef(null);
   const videoRef = useRef(null);
@@ -29,20 +31,23 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
         return;
       }
 
+      // Store the file for later analysis
+      setCapturedFile(file);
+      setCaptureMethod('upload');
+
       // Create preview
       const reader = new FileReader();
       reader.onload = (e) => {
         setPreview(e.target.result);
       };
       reader.readAsDataURL(file);
-      
-      // Pass file to parent component
-      onImageCapture(file);
     }
   };
 
   const clearImage = () => {
     setPreview(null);
+    setCapturedFile(null);
+    setCaptureMethod(null);
     // Close camera if open
     if (isCameraOpen) {
       closeCamera();
@@ -56,11 +61,37 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
     }
   };
 
-  const handleCameraClick = () => {
-    if (cameraInputRef.current && !isAnalyzing) {
-      cameraInputRef.current.click();
+  const handleAnalyze = () => {
+    if (capturedFile && onImageCapture) {
+      onImageCapture(capturedFile);
     }
   };
+
+  const handleRetake = () => {
+    // Simply clear everything and go back to main selection
+    setPreview(null);
+    setCapturedFile(null);
+    setCaptureMethod(null);
+    
+    // Close camera if open
+    if (isCameraOpen) {
+      closeCamera();
+    }
+    
+    // Reset file inputs
+    if (cameraInputRef.current) {
+      cameraInputRef.current.value = '';
+    }
+    if (uploadInputRef.current) {
+      uploadInputRef.current.value = '';
+    }
+  };
+
+//   const handleCameraClick = () => {
+//     if (cameraInputRef.current && !isAnalyzing) {
+//       cameraInputRef.current.click();
+//     }
+//   };
 
   const handleUploadClick = () => {
     if (uploadInputRef.current && !isAnalyzing) {
@@ -116,15 +147,16 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
       canvas.toBlob((blob) => {
         const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
         
+        // Store the file for later analysis
+        setCapturedFile(file);
+        setCaptureMethod('camera');
+        
         // Convert to image data URL for preview
         const imageDataUrl = canvas.toDataURL('image/jpeg', 0.8);
         setPreview(imageDataUrl);
         
         // Close camera after capture
         closeCamera();
-        
-        // Pass file to parent component
-        onImageCapture(file);
       }, 'image/jpeg', 0.8);
     }
   };
@@ -154,7 +186,7 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
               className="close-camera-button"
               disabled={isAnalyzing}
             >
-              ❌ Close Camera
+              Close Camera
             </button>
           </div>
         </div>
@@ -214,11 +246,18 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
           </div>
           <div className="image-actions">
             <button 
-              className="clear-button" 
-              onClick={clearImage}
+              className="analyze-button" 
+              onClick={handleAnalyze}
               disabled={isAnalyzing}
             >
-              Choose Different Image
+              🔍 Analyze Image
+            </button>
+            <button 
+              className="retake-button" 
+              onClick={handleRetake}
+              disabled={isAnalyzing}
+            >
+              🔄 Retake
             </button>
           </div>
           {isAnalyzing && (

@@ -108,6 +108,54 @@
 
 .image-actions {
   margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.analyze-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.analyze-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: scale(1.05);
+}
+
+.retake-button {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.retake-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f57c00, #ef6c00);
+  transform: scale(1.05);
+}
+
+.analyze-button:disabled,
+.retake-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  background: #cccccc;
 }
 
 .clear-button {
@@ -189,6 +237,17 @@
   .image-capture-container {
     padding: 10px;
   }
+
+  .image-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .analyze-button,
+  .retake-button {
+    width: 100%;
+    max-width: 250px;
+  }
 }
 
 /* Camera Styles */
@@ -219,7 +278,7 @@
 }
 
 .capture-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -267,7 +326,7 @@
     flex-direction: column;
     align-items: center;
   }
-  
+
   .capture-button,
   .close-camera-button {
     width: 100%;
