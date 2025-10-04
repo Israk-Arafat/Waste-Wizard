@@ -273,7 +273,7 @@
 
 .camera-controls {
   padding: 20px;
-  background: #f8f9fa;
+  background: white;
   display: flex;
   gap: 15px;
   justify-content: center;

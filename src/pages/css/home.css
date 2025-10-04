@@ -13,7 +13,7 @@
 }
 
 .product-punchline {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 3rem auto 2rem;
   padding: 2.5rem 2rem;
   text-align: center;
@@ -49,14 +49,12 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 2rem;
 }
 
 .image-option-card {
-  background: white;
+  background: #f9fafb;
   border-radius: 12px;
-  padding: 2rem;
-  width: 300px;
+  width: 400px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
@@ -300,13 +298,10 @@
 }
 
 .usage-guide {
-  max-width: 800px;
   margin: 3rem auto;
   padding: 2rem;
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
+
   text-align: left;
 }
 
@@ -450,11 +445,6 @@
   .usage-guide {
     margin: 2rem 1rem;
     padding: 1.5rem;
-  }
-
-  .product-punchline {
-    margin: 2rem 1rem 1.5rem;
-    padding: 2rem 1.25rem;
   }
 
   .product-punchline h1 {
