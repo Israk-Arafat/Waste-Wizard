@@ -12,6 +12,35 @@
   flex-direction: column;
 }
 
+.product-punchline {
+  max-width: 1200px;
+  margin: 3rem auto 2rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.1),
+    rgba(69, 160, 73, 0.05)
+  );
+  border-radius: 20px;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  box-shadow: 0 12px 30px rgba(76, 175, 80, 0.12);
+}
+
+.product-punchline h1 {
+  margin: 0 0 1rem;
+  font-size: 2.25rem;
+  color: #1b4332;
+  line-height: 1.3;
+}
+
+.product-punchline p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2f5d50;
+  line-height: 1.6;
+}
+
 /* Image options container */
 .image-options-container {
   display: flex;
@@ -20,14 +49,12 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 2rem;
 }
 
 .image-option-card {
-  background: white;
+  background: #f9fafb;
   border-radius: 12px;
-  padding: 2rem;
-  width: 300px;
+  width: 400px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
@@ -46,7 +73,7 @@
   width: 64px;
   height: 64px;
   margin-bottom: 1.5rem;
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .image-option-card h2 {
@@ -64,7 +91,7 @@
 }
 
 .image-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
@@ -100,7 +127,7 @@
   max-width: 600px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border: 3px solid #4CAF50;
+  border: 3px solid #4caf50;
 }
 
 .camera-controls {
@@ -110,7 +137,8 @@
   flex-wrap: wrap;
 }
 
-.capture-button, .close-camera-button {
+.capture-button,
+.close-camera-button {
   padding: 1rem 2rem;
   border: none;
   border-radius: 50px;
@@ -127,7 +155,7 @@
 }
 
 .capture-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
   position: relative;
   overflow: hidden;
@@ -187,7 +215,9 @@
   flex-wrap: wrap;
 }
 
-.retake-button, .clear-button, .upload-button {
+.retake-button,
+.clear-button,
+.upload-button {
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 25px;
@@ -200,7 +230,7 @@
 }
 
 .upload-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
 }
 
@@ -210,7 +240,7 @@
 }
 
 .retake-button {
-  background: linear-gradient(135deg, #2196F3, #1976D2);
+  background: linear-gradient(135deg, #2196f3, #1976d2);
   color: white;
 }
 
@@ -241,7 +271,7 @@
 
 .analysis-success {
   background: linear-gradient(135deg, #e8f5e8, #f0f9f0);
-  border: 2px solid #4CAF50;
+  border: 2px solid #4caf50;
 }
 
 .analysis-error {
@@ -267,6 +297,111 @@
   color: #2c5282;
 }
 
+.usage-guide {
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+
+  text-align: left;
+}
+
+.usage-guide h2 {
+  margin-top: 0;
+  color: #2c5282;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.usage-steps {
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+  color: #2d3748;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.usage-steps li + li {
+  margin-top: 0.75rem;
+}
+
+.usage-tip {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  text-align: center;
+}
+
+.features {
+  max-width: 1100px;
+  margin: 3rem auto 4rem;
+  padding: 3rem 2.5rem;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 12px 30px rgba(44, 62, 80, 0.08);
+}
+
+.features h2 {
+  margin: 0 0 2.5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c5282;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(44, 62, 80, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(76, 175, 80, 0.4);
+  box-shadow: 0 18px 30px rgba(76, 175, 80, 0.2);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: rgba(76, 175, 80, 0.12);
+  color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.feature-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  color: #2c3e50;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .image-options-container {
@@ -281,22 +416,64 @@
     max-width: 300px;
   }
 
-  .camera-container, .image-result-container {
+  .camera-container,
+  .image-result-container {
     padding: 1rem;
   }
 
-  .camera-video, .captured-image {
+  .camera-video,
+  .captured-image {
     max-width: 100%;
   }
 
-  .camera-controls, .image-controls {
+  .camera-controls,
+  .image-controls {
     flex-direction: column;
     width: 100%;
     max-width: 300px;
   }
 
-  .capture-button, .close-camera-button, .retake-button, .clear-button, .upload-button {
+  .capture-button,
+  .close-camera-button,
+  .retake-button,
+  .clear-button,
+  .upload-button {
     width: 100%;
     min-width: auto;
+  }
+
+  .usage-guide {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .product-punchline h1 {
+    font-size: 1.8rem;
+  }
+
+  .product-punchline p {
+    font-size: 1rem;
+  }
+
+  .usage-steps {
+    font-size: 1rem;
+  }
+
+  .features {
+    margin: 2.5rem 1rem 3rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .features h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .feature-grid {
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.75rem 1.25rem;
   }
 }

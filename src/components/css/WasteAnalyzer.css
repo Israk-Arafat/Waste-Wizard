@@ -1,29 +1,6 @@
 .waste-analyzer {
-  min-height: calc(100vh - 80px);
-  background: linear-gradient(135deg, #f5f7fa 0%);
-  padding: 40px 20px;
-}
-
-.analyzer-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-.analyzer-header h1 {
-  color: #2c3e50;
-  font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.analyzer-header p {
-  color: #7f8c8d;
-  font-size: 20px;
-  font-weight: 400;
-  margin: 0;
-  line-height: 1.5;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .error-message {
@@ -71,18 +48,4 @@
 
 .dismiss-error:hover {
   background: #d32f2f;
-}
-
-@media (max-width: 768px) {
-  .waste-analyzer {
-    padding: 20px 10px;
-  }
-
-  .analyzer-header h1 {
-    font-size: 36px;
-  }
-
-  .analyzer-header p {
-    font-size: 18px;
-  }
 }

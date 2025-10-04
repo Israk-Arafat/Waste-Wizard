@@ -1,20 +1,23 @@
 .image-capture-container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .image-options-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
   margin: 40px 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .image-option-card {
   background: white;
   border-radius: 16px;
-  padding: 30px;
+  padding: 40px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -28,9 +31,9 @@
 }
 
 .card-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
   color: #4caf50;
 }
 
@@ -41,26 +44,26 @@
 
 .image-option-card h2 {
   color: #2c3e50;
-  margin-bottom: 10px;
-  font-size: 24px;
+  margin-bottom: 15px;
+  font-size: 28px;
   font-weight: 600;
 }
 
 .image-option-card p {
   color: #7f8c8d;
-  margin-bottom: 25px;
-  font-size: 16px;
+  margin-bottom: 30px;
+  font-size: 18px;
 }
 
 .image-button {
   display: inline-block;
   background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
-  padding: 12px 30px;
+  padding: 16px 40px;
   border-radius: 25px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.3s ease;
   border: none;
   text-decoration: none;
@@ -100,7 +103,7 @@
 
 .image-preview img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 500px;
   width: auto;
   height: auto;
   display: block;
@@ -253,7 +256,7 @@
 /* Camera Styles */
 .camera-container {
   text-align: center;
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
   background: white;
   border-radius: 16px;
@@ -263,14 +266,14 @@
 
 .camera-video {
   width: 100%;
-  max-height: 400px;
+  max-height: 500px;
   object-fit: cover;
   display: block;
 }
 
 .camera-controls {
   padding: 20px;
-  background: #f8f9fa;
+  background: white;
   display: flex;
   gap: 15px;
   justify-content: center;

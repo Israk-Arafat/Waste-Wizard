@@ -1,5 +1,5 @@
 .results-container {
-  max-width: 600px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
 }
@@ -7,7 +7,7 @@
 .result-card {
   background: white;
   border-radius: 20px;
-  padding: 40px 30px;
+  padding: 50px 40px;
   text-align: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 3px solid;
@@ -32,9 +32,9 @@
 }
 
 .result-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 25px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
   animation: iconPulse 2s ease-in-out infinite;
 }
 
@@ -54,21 +54,21 @@
 }
 
 .result-category {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 800;
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .result-reason {
-  font-size: 18px;
+  font-size: 20px;
   color: #555;
   line-height: 1.6;
-  margin: 0 0 35px 0;
+  margin: 0 0 40px 0;
   font-weight: 500;
-  max-width: 400px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -77,9 +77,9 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  padding: 15px 30px;
+  padding: 18px 40px;
   border-radius: 30px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -133,5 +133,38 @@
   .result-icon {
     width: 60px;
     height: 60px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .results-container {
+    margin: 60px auto;
+    padding: 30px;
+  }
+
+  .result-card {
+    padding: 60px 50px;
+  }
+
+  .result-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 35px;
+  }
+
+  .result-category {
+    font-size: 64px;
+    margin-bottom: 30px;
+  }
+
+  .result-reason {
+    font-size: 22px;
+    margin-bottom: 45px;
+    max-width: 700px;
+  }
+
+  .new-analysis-button {
+    padding: 20px 50px;
+    font-size: 20px;
   }
 }
