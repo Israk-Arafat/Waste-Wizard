@@ -6,23 +6,9 @@ import './css/home.css';
 function App() {
   return (
     <>
-      <section className="product-punchline" aria-label="WasteWizard punchline">
-        <h1>WasteWizard turns waste into wisdom in a single snap.</h1>
-        <p>Point your camera, let our AI guide you, and feel confident about every recycling decision.</p>
-      </section>
       <ErrorBoundary>
         <WasteAnalyzer />
       </ErrorBoundary>
-      <section className="usage-guide" aria-labelledby="usage-guide-heading">
-        <h2 id="usage-guide-heading">How to use WasteWizard</h2>
-        <ol className="usage-steps">
-          <li>Select <strong>Take Photo</strong> or <strong>Upload Photo</strong> to provide an image of your item.</li>
-          <li>Wait a moment while the AI classifies the item and explains the best disposal method.</li>
-          <li>Review the recommendation, then tap <strong>Analyze Another Item</strong> to keep scanning.</li>
-        </ol>
-        <p className="usage-tip">Tip: Clear, well-lit photos help the model give more accurate advice.</p>
-      </section>
-
       <section className="features" aria-labelledby="features-heading">
         <h2 id="features-heading">Why people trust WasteWizard</h2>
         <div className="feature-grid">
@@ -96,6 +82,15 @@ function App() {
             <p>No subscriptions or surprise costs—WasteWizard is a community-first tool for better recycling.</p>
           </article>
         </div>
+      </section>
+      <section className="usage-guide" aria-labelledby="usage-guide-heading">
+        <h2 id="usage-guide-heading">How to use WasteWizard</h2>
+        <ol className="usage-steps">
+          <li>Select <strong>Take Photo</strong> or <strong>Upload Photo</strong> to provide an image of your item.</li>
+          <li>Wait a moment while the AI classifies the item and explains the best disposal method.</li>
+          <li>Review the recommendation, then tap <strong>Analyze Another Item</strong> to keep scanning.</li>
+        </ol>
+        <p className="usage-tip">Tip: Clear, well-lit photos help the model give more accurate advice.</p>
       </section>
     </>
   );
