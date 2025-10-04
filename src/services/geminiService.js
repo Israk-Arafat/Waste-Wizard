@@ -35,16 +35,12 @@ class GeminiService {
       - BOTTLE DEPOSIT
       - TRASH  
       - COMPOST
-      - BOTTLE DEPOSIT
+
 
       Respond with ONLY the category (RECYCLE, TRASH, or COMPOST) followed by a single short sentence explaining why.
       
       Format your response exactly like this:
-<<<<<<< Updated upstream
       CATEGORY: [RECYCLE/TRASH/COMPOST/BOTTLE DEPOSIT]
-=======
-      CATEGORY: [RECYCLE/TRASH/BOTTLE DEPOSIT/COMPOST]
->>>>>>> Stashed changes
       REASON: [One short sentence explaining why]
       
       Be decisive and give only one category.`;
