@@ -15,7 +15,7 @@ const AppLayout = () => {
 
   return (
     <UMaineModeContext.Provider value={contextValue}>
-      <div className="App">
+      <div className={`App ${isUMaineMode ? 'umaine-theme' : 'global-theme'}`}>
         <Navigation />
         <div className="content">
           <Outlet />

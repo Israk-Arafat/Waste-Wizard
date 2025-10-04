@@ -28,6 +28,11 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   border-color: #4caf50;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.umaine-theme .image-option-card:hover {
+  border-color: #3b82f6;
 }
 
 .card-icon {
@@ -35,6 +40,11 @@
   height: 80px;
   margin: 0 auto 25px;
   color: #4caf50;
+  transition: color 0.3s ease;
+}
+
+.umaine-theme .card-icon {
+  color: #3b82f6;
 }
 
 .card-icon svg {
@@ -70,9 +80,17 @@
   outline: none;
 }
 
+.umaine-theme .image-button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
 .image-button:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: scale(1.05);
+}
+
+.umaine-theme .image-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
 
 .image-button:active:not(:disabled) {
@@ -136,6 +154,17 @@
   box-shadow: 0 4px 15px rgba(15, 97, 52, 0.12);
 }
 
+.umaine-theme .analyze-button {
+  background: linear-gradient(
+    135deg,
+    rgba(219, 234, 254, 0.96) 0%,
+    rgba(59, 130, 246, 0.96) 100%
+  );
+  color: #1e3a8a;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.12);
+}
+
 .analyze-button:hover:not(:disabled) {
   background: linear-gradient(
     135deg,
@@ -145,6 +174,16 @@
   color: white;
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(15, 97, 52, 0.2);
+}
+
+.umaine-theme .analyze-button:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.96) 0%,
+    rgba(29, 78, 216, 0.96) 100%
+  );
+  color: white;
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.2);
 }
 
 .retake-button {

@@ -2,11 +2,12 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 0.9rem clamp(1rem, 6vw, 3rem);
+  width: 100%;
+  padding: 0.9rem clamp(0.5rem, 4vw, 2.5rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   background: linear-gradient(
     135deg,
     rgba(236, 253, 245, 0.96) 0%,
@@ -15,7 +16,18 @@
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(76, 175, 80, 0.25);
   box-shadow: 0 12px 35px rgba(15, 97, 52, 0.12);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* UMaine Theme - Blue Navigation */
+.umaine-theme .navbar {
+  background: linear-gradient(
+    135deg,
+    rgba(219, 234, 254, 0.96) 0%,
+    rgba(59, 130, 246, 0.96) 100%
+  );
+  border-bottom: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 12px 35px rgba(30, 64, 175, 0.12);
 }
 
 .navbar:hover {
@@ -23,22 +35,31 @@
   box-shadow: 0 16px 40px rgba(56, 142, 60, 0.16);
 }
 
+.umaine-theme .navbar:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.16);
+}
+
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 2.75vw, 1.75rem);
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  max-width: 60%;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: clamp(0.75rem, 2.75vw, 1.5rem);
+  gap: clamp(0.5rem, 2vw, 1rem);
+  flex-shrink: 0;
+  min-width: 35%;
+  justify-content: flex-end;
 }
 
 .navbar-branding {
   display: flex;
   align-items: center;
-  gap: clamp(1.2rem, 3vw, 2.5rem);
+  gap: clamp(1rem, 2.5vw, 2rem);
 }
 
 .navbar-logo {
@@ -46,6 +67,11 @@
   width: auto;
   flex-shrink: 0;
   filter: drop-shadow(0 4px 8px rgba(76, 175, 80, 0.25));
+  transition: filter 0.3s ease;
+}
+
+.umaine-theme .navbar-logo {
+  filter: drop-shadow(0 4px 8px rgba(59, 130, 246, 0.25));
 }
 
 .brand-link {
@@ -66,6 +92,16 @@
   color: #0f5132;
   background: rgba(74, 222, 128, 0.18);
   box-shadow: 0 10px 20px rgba(74, 222, 128, 0.25);
+}
+
+.umaine-theme .brand-link {
+  color: #1e3a8a;
+}
+
+.umaine-theme .brand-link:hover {
+  color: #1e40af;
+  background: rgba(96, 165, 250, 0.18);
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.25);
 }
 
 .brand-name {
@@ -104,9 +140,18 @@
   transition: transform 0.25s ease;
 }
 
+.umaine-theme .navbar-links .nav-link::after {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
 .navbar-links .nav-link:hover,
 .navbar-links .nav-link.active {
   color: #0f5132;
+}
+
+.umaine-theme .navbar-links .nav-link:hover,
+.umaine-theme .navbar-links .nav-link.active {
+  color: #1e40af;
 }
 
 .navbar-links .nav-link:hover::after,
@@ -134,13 +179,24 @@
   border-radius: 12px;
   box-shadow: 0 10px 20px rgba(15, 97, 52, 0.15);
   transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background-color 0.25s ease;
+    background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.umaine-theme .hamburger {
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  color: #1e3a8a;
+  box-shadow: 0 10px 20px rgba(30, 64, 175, 0.15);
 }
 
 .hamburger:hover {
   background-color: rgba(236, 253, 245, 0.95);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(56, 142, 60, 0.2);
+}
+
+.umaine-theme .hamburger:hover {
+  background-color: rgba(219, 234, 254, 0.95);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.2);
 }
 
 .dropdown-content {
@@ -154,10 +210,14 @@
   border-radius: 14px;
   z-index: 1;
   overflow: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
+}
+
+.umaine-theme .dropdown-content {
+  box-shadow: 0 18px 40px rgba(30, 64, 175, 0.2);
 }
 
 .dropdown-content.show-dropdown {
@@ -191,15 +251,24 @@
   padding-left: 1.4rem;
 }
 
+.umaine-theme .dropdown-content .nav-link:hover {
+  background-color: rgba(219, 234, 254, 0.75);
+}
+
 .dropdown-content .nav-link.active {
   color: #0f5132;
   background-color: rgba(209, 250, 229, 0.6);
 }
 
+.umaine-theme .dropdown-content .nav-link.active {
+  color: #1e40af;
+  background-color: rgba(191, 219, 254, 0.6);
+}
+
 @media (max-width: 1024px) {
   .navbar {
-    padding: 0.85rem clamp(1rem, 7vw, 2.25rem);
-    gap: 1.5rem;
+    padding: 0.85rem clamp(0.5rem, 4vw, 1.5rem);
+    gap: 1rem;
   }
 
   .navbar-logo {
@@ -207,7 +276,36 @@
   }
 
   .navbar-branding {
-    gap: 1.75rem;
+    gap: 1.25rem;
+  }
+  
+  .navbar-left {
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    max-width: 55%;
+  }
+
+  .navbar-right {
+    gap: 0.75rem;
+    min-width: 40%;
+  }
+
+  .umaine-toggle {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.7rem 0.25rem 0.35rem;
+  }
+  
+  .umaine-toggle .toggle-track {
+    width: 40px;
+    height: 20px;
+  }
+
+  .umaine-toggle .toggle-thumb {
+    width: 14px;
+    height: 14px;
+  }
+
+  .umaine-toggle.active .toggle-thumb {
+    transform: translateX(20px);
   }
 }
 
