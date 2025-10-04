@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./components/Navigation', () => () => (
+  <nav>
+    <span>WasteWizard</span>
+  </nav>
+));
+
+import App from './home';
+
+test('renders waste analyzer heading', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const heading = screen.getByRole('heading', { name: /Waste Classification/i });
+  expect(heading).toBeInTheDocument();
 });

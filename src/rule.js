@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './rule.css';
 import logo from './assets/Logo_artist-Israk.png';
 import rulesPoster from './assets/rule.png';
@@ -8,6 +9,10 @@ function Rules() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleMenuLinkClick = () => {
+    setIsMenuOpen(false);
   };
 
   // Close menu when clicking outside
@@ -26,19 +31,21 @@ function Rules() {
     <div className="Rules">
       <nav className="navbar">
         <div className="navbar-logo-container">
-          <a href="/">
+          <Link to="/" onClick={handleMenuLinkClick}>
             <img src={logo} alt="WasteWizard Logo" className="navbar-logo" />
-          </a>
+          </Link>
         </div>
         <div className="navbar-brand">
-          <a href="/" className="brand-link">WasteWizard</a>
+          <Link to="/" className="brand-link" onClick={handleMenuLinkClick}>
+            WasteWizard
+          </Link>
         </div>
         <div className="hamburger-menu">
           <div className="dropdown">
             <button className="hamburger" onClick={toggleMenu}>☰</button>
             <div className={`dropdown-content ${isMenuOpen ? 'show-dropdown' : ''}`}>
-              <a href="/">Home</a>
-              <a href="/rules">Rules</a>
+              <Link to="/" onClick={handleMenuLinkClick}>Home</Link>
+              <Link to="/rules" onClick={handleMenuLinkClick}>Rules</Link>
             </div>
           </div>
         </div>

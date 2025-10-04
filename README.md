@@ -27,13 +27,10 @@ npm install
 
 ### 3. Configure Environment
 
-1. Copy the example environment file:
+1. create a .env file
 
-```bash
-cp .env.example .env
-```
 
-2. Edit `.env` and replace `your_api_key_here` with your actual Gemini API key:
+2. Edit `.env` and add you Gemini api key:
 
 ```
 REACT_APP_GEMINI_API_KEY=your_actual_api_key_here
