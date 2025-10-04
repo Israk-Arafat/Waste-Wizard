@@ -64,21 +64,23 @@
   transition: all 0.3s ease;
   border: none;
   text-decoration: none;
+  outline: none;
 }
 
-.image-button:hover {
+.image-button:hover:not(:disabled) {
   background: linear-gradient(135deg, #45a049, #3d8b40);
   transform: scale(1.05);
 }
 
-.image-button input[type="file"] {
-  display: none;
+.image-button:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 .image-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
+  background: #cccccc;
 }
 
 /* Image Preview Styles */
@@ -186,5 +188,89 @@
 
   .image-capture-container {
     padding: 10px;
+  }
+}
+
+/* Camera Styles */
+.camera-container {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.camera-video {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.camera-controls {
+  padding: 20px;
+  background: #f8f9fa;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.capture-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.capture-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #3d8b40);
+  transform: scale(1.05);
+}
+
+.close-camera-button {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.close-camera-button:hover:not(:disabled) {
+  background: #c0392b;
+  transform: scale(1.05);
+}
+
+.capture-button:disabled,
+.close-camera-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  background: #cccccc;
+}
+
+@media (max-width: 768px) {
+  .camera-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .capture-button,
+  .close-camera-button {
+    width: 100%;
+    max-width: 250px;
   }
 }

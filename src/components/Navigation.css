@@ -73,10 +73,16 @@
   border-radius: 8px;
   z-index: 1;
   overflow: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown-content.show-dropdown {
   display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .dropdown-content a {

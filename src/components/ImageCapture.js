@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './ImageCapture.css';
 
 const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
   const [preview, setPreview] = useState(null);
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [stream, setStream] = useState(null);
+  const cameraInputRef = useRef(null);
+  const uploadInputRef = useRef(null);
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -11,6 +17,14 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
       const supportedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
       if (!supportedTypes.includes(file.type)) {
         alert(`Unsupported image format: ${file.type}\nPlease use JPEG, PNG, WebP, or GIF.`);
+        event.target.value = ''; // Clear the input
+        return;
+      }
+
+      // Validate file size (max 10MB)
+      const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+      if (file.size > maxSize) {
+        alert('File size too large. Please choose an image smaller than 10MB.');
         event.target.value = ''; // Clear the input
         return;
       }
@@ -29,11 +43,122 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
 
   const clearImage = () => {
     setPreview(null);
+    // Close camera if open
+    if (isCameraOpen) {
+      closeCamera();
+    }
+    // Reset file inputs using refs
+    if (cameraInputRef.current) {
+      cameraInputRef.current.value = '';
+    }
+    if (uploadInputRef.current) {
+      uploadInputRef.current.value = '';
+    }
+  };
+
+  const handleCameraClick = () => {
+    if (cameraInputRef.current && !isAnalyzing) {
+      cameraInputRef.current.click();
+    }
+  };
+
+  const handleUploadClick = () => {
+    if (uploadInputRef.current && !isAnalyzing) {
+      uploadInputRef.current.click();
+    }
+  };
+
+  // Camera functionality
+  const openCamera = async () => {
+    try {
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'environment' }, // Use back camera if available
+        audio: false // We only need video for images
+      });
+      
+      setStream(mediaStream);
+      setIsCameraOpen(true);
+      
+      // Set video stream after state updates
+      setTimeout(() => {
+        if (videoRef.current) {
+          videoRef.current.srcObject = mediaStream;
+        }
+      }, 100);
+    } catch (error) {
+      console.error('Error accessing camera:', error);
+      alert('Camera access denied or not available. Please check your camera permissions.');
+    }
+  };
+
+  const closeCamera = () => {
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      setStream(null);
+    }
+    setIsCameraOpen(false);
+  };
+
+  const captureImage = () => {
+    if (videoRef.current && canvasRef.current) {
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      const context = canvas.getContext('2d');
+      
+      // Set canvas dimensions to match video
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      
+      // Draw video frame to canvas
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      
+      // Convert to blob and create file
+      canvas.toBlob((blob) => {
+        const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
+        
+        // Convert to image data URL for preview
+        const imageDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+        setPreview(imageDataUrl);
+        
+        // Close camera after capture
+        closeCamera();
+        
+        // Pass file to parent component
+        onImageCapture(file);
+      }, 'image/jpeg', 0.8);
+    }
+  };
+
+  const handleCameraButtonClick = () => {
+    if (!isAnalyzing) {
+      openCamera();
+    }
   };
 
   return (
     <div className="image-capture-container">
-      {!preview ? (
+      {isCameraOpen ? (
+        <div className="camera-container">
+          <video ref={videoRef} autoPlay playsInline className="camera-video" />
+          <canvas ref={canvasRef} style={{ display: 'none' }} />
+          <div className="camera-controls">
+            <button 
+              onClick={captureImage} 
+              className="capture-button"
+              disabled={isAnalyzing}
+            >
+              📷 Capture Photo
+            </button>
+            <button 
+              onClick={closeCamera} 
+              className="close-camera-button"
+              disabled={isAnalyzing}
+            >
+              ❌ Close Camera
+            </button>
+          </div>
+        </div>
+      ) : !preview ? (
         <div className="image-options-container">
           <div className="image-option-card">
             <div className="card-icon">
@@ -44,16 +169,14 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
             </div>
             <h2>Take Photo</h2>
             <p>Use your camera to capture an image</p>
-            <label className="image-button">
-              <input 
-                type="file" 
-                accept="image/jpeg,image/jpg,image/png,image/webp,image/gif" 
-                capture="environment" 
-                onChange={handleImageChange}
-                disabled={isAnalyzing}
-              />
-              Open Camera
-            </label>
+            <button 
+              className="image-button"
+              onClick={handleCameraButtonClick}
+              disabled={isAnalyzing}
+              type="button"
+            >
+              📷 Open Camera
+            </button>
           </div>
 
           <div className="image-option-card">
@@ -66,15 +189,22 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
             </div>
             <h2>Upload Photo</h2>
             <p>Choose an image from your device</p>
-            <label className="image-button">
-              <input 
-                type="file" 
-                accept="image/jpeg,image/jpg,image/png,image/webp,image/gif" 
-                onChange={handleImageChange}
-                disabled={isAnalyzing}
-              />
-              Select Image
-            </label>
+            <input 
+              ref={uploadInputRef}
+              type="file" 
+              accept="image/jpeg,image/jpg,image/png,image/webp,image/gif" 
+              onChange={handleImageChange}
+              disabled={isAnalyzing}
+              style={{ display: 'none' }}
+            />
+            <button 
+              className="image-button"
+              onClick={handleUploadClick}
+              disabled={isAnalyzing}
+              type="button"
+            >
+              📁 Select Image
+            </button>
           </div>
         </div>
       ) : (
