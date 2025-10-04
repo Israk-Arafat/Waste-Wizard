@@ -136,22 +136,33 @@
   display: none;
   position: absolute;
   right: 0;
+  top: calc(100% + 0.4rem);
   background-color: #ffffff;
   min-width: 190px;
   box-shadow: 0 18px 40px rgba(15, 97, 52, 0.2);
   border-radius: 14px;
   z-index: 1;
   overflow: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.25s ease;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(-6px);
 }
 
-.dropdown:hover .dropdown-content,
 .dropdown-content.show-dropdown {
   display: block;
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
 
 .dropdown-content .nav-link {

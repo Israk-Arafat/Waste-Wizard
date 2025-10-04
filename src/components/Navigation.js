@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './css/Navigation.css';
 import logo from '../assets/Logo_artist-Israk.png';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   // Close menu when clicking outside
@@ -21,6 +22,10 @@ const Navigation = () => {
     document.addEventListener('click', closeMenu);
     return () => document.removeEventListener('click', closeMenu);
   }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   const handleMenuLinkClick = () => {
     setIsMenuOpen(false);
@@ -53,13 +58,26 @@ const Navigation = () => {
       </div>
       <div className="hamburger-menu">
         <div className="dropdown">
-          <button className="hamburger" onClick={toggleMenu}>☰</button>
-          <div className={`dropdown-content ${isMenuOpen ? 'show-dropdown' : ''}`}>
+          <button
+            className="hamburger"
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-haspopup="true"
+            aria-controls="mobile-navigation"
+          >
+            ☰
+          </button>
+          <div
+            id="mobile-navigation"
+            className={`dropdown-content ${isMenuOpen ? 'show-dropdown' : ''}`}
+            role="menu"
+          >
             <NavLink
               to="/"
               end
               className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
               onClick={handleMenuLinkClick}
+              role="menuitem"
             >
               Home
             </NavLink>
@@ -67,6 +85,7 @@ const Navigation = () => {
               to="/rules"
               className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
               onClick={handleMenuLinkClick}
+              role="menuitem"
             >
               Rules
             </NavLink>
