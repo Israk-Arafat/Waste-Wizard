@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Navigation.css';
+import './css/Navigation.css';
 import logo from '../assets/Logo_artist-Israk.png';
 
 const Navigation = () => {

@@ -6,7 +6,7 @@ jest.mock('./components/Navigation', () => () => (
   </nav>
 ));
 
-import App from './home';
+import App from './pages/home';
 
 test('renders waste analyzer heading', () => {
   render(<App />);

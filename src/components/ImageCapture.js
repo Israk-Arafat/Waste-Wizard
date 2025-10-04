@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './ImageCapture.css';
+import './css/ImageCapture.css';
 
 const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
   const [preview, setPreview] = useState(null);

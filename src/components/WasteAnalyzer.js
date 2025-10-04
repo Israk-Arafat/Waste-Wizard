@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ImageCapture from './ImageCapture';
 import ResultsDisplay from './ResultsDisplay';
 import geminiService from '../services/geminiService';
-import './WasteAnalyzer.css';
+import './css/WasteAnalyzer.css';
 
 const WasteAnalyzer = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
