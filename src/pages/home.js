@@ -6,10 +6,6 @@ import './css/home.css';
 function App() {
   return (
     <>
-      <section className="product-punchline" aria-label="WasteWizard punchline">
-        <h1>WasteWizard turns waste into wisdom in a single snap.</h1>
-        <p>Point your camera, let our AI guide you, and feel confident about every recycling decision.</p>
-      </section>
       <ErrorBoundary>
         <WasteAnalyzer />
       </ErrorBoundary>
