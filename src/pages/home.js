@@ -6,6 +6,10 @@ import './css/home.css';
 function App() {
   return (
     <>
+      <section className="hero-punchline" aria-label="WasteWizard introduction">
+        <h1>Turn waste into wisdom with a single snap</h1>
+        <p>Smart recycling guidance powered by AI - simply capture or upload any item to get instant disposal advice</p>
+      </section>
       <ErrorBoundary>
         <WasteAnalyzer />
       </ErrorBoundary>
