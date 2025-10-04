@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import WasteAnalyzer from './components/WasteAnalyzer';
 import ErrorBoundary from './components/ErrorBoundary';
 import './home.css';
+import { useState, useRef } from 'react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
