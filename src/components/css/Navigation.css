@@ -48,7 +48,6 @@
 }
 
 .navbar-right {
-  display: flex;
   align-items: center;
   gap: clamp(0.5rem, 2vw, 1rem);
   flex-shrink: 0;
@@ -382,7 +381,6 @@
 
 .umaine-toggle.mobile {
   display: none;
-  width: 100%;
   justify-content: space-between;
   margin-top: 0.25rem;
 }
