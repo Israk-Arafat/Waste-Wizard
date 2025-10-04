@@ -37,7 +37,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 1.1;
+  line-height: 1.2;
+  padding-bottom: 0.15em;
   letter-spacing: -0.03em;
   text-shadow: 0 4px 8px rgba(15, 97, 52, 0.1);
   position: relative;
@@ -60,7 +61,7 @@
 }
 
 .hero-punchline h1::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -12px;
   left: 50%;
