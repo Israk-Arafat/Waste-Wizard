@@ -244,14 +244,14 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
               onClick={handleAnalyze}
               disabled={isAnalyzing}
             >
-              🔍 Analyze Image
+              Analyze Image
             </button>
             <button 
               className="retake-button" 
               onClick={handleRetake}
               disabled={isAnalyzing}
             >
-              🔄 Retake
+              Retake
             </button>
           </div>
           {isAnalyzing && (
