@@ -79,4 +79,6 @@ Keep your response concise but informative (2-3 paragraphs maximum).`;
   }
 }
 
-export default new ChatbotService();
+const chatbotService = new ChatbotService();
+
+export default chatbotService;
