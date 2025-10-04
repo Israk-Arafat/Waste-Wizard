@@ -34,11 +34,12 @@ class GeminiService {
       - RECYCLE
       - TRASH  
       - COMPOST
+      - BOTTLE DEPOSIT
 
       Respond with ONLY the category (RECYCLE, TRASH, or COMPOST) followed by a single short sentence explaining why.
       
       Format your response exactly like this:
-      CATEGORY: [RECYCLE/TRASH/COMPOST]
+      CATEGORY: [RECYCLE/TRASH/COMPOST/BOTTLE DEPOSIT]
       REASON: [One short sentence explaining why]
       
       Be decisive and give only one category.`;
@@ -90,6 +91,8 @@ class GeminiService {
           category = 'RECYCLE';
         } else if (upperText.includes('COMPOST')) {
           category = 'COMPOST';
+        } else if (upperText.includes('BOTTLE DEPOSIT')) {
+          category = 'BOTTLE DEPOSIT';
         } else {
           category = 'TRASH';
         }
