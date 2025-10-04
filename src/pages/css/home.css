@@ -46,7 +46,7 @@
   width: 64px;
   height: 64px;
   margin-bottom: 1.5rem;
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .image-option-card h2 {
@@ -64,7 +64,7 @@
 }
 
 .image-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 0.8rem 1.5rem;
   border-radius: 6px;
@@ -100,7 +100,7 @@
   max-width: 600px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  border: 3px solid #4CAF50;
+  border: 3px solid #4caf50;
 }
 
 .camera-controls {
@@ -110,7 +110,8 @@
   flex-wrap: wrap;
 }
 
-.capture-button, .close-camera-button {
+.capture-button,
+.close-camera-button {
   padding: 1rem 2rem;
   border: none;
   border-radius: 50px;
@@ -127,7 +128,7 @@
 }
 
 .capture-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
   position: relative;
   overflow: hidden;
@@ -187,7 +188,9 @@
   flex-wrap: wrap;
 }
 
-.retake-button, .clear-button, .upload-button {
+.retake-button,
+.clear-button,
+.upload-button {
   padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 25px;
@@ -200,7 +203,7 @@
 }
 
 .upload-button {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
+  background: linear-gradient(135deg, #4caf50, #45a049);
   color: white;
 }
 
@@ -210,7 +213,7 @@
 }
 
 .retake-button {
-  background: linear-gradient(135deg, #2196F3, #1976D2);
+  background: linear-gradient(135deg, #2196f3, #1976d2);
   color: white;
 }
 
@@ -241,7 +244,7 @@
 
 .analysis-success {
   background: linear-gradient(135deg, #e8f5e8, #f0f9f0);
-  border: 2px solid #4CAF50;
+  border: 2px solid #4caf50;
 }
 
 .analysis-error {
@@ -267,6 +270,43 @@
   color: #2c5282;
 }
 
+.usage-guide {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.usage-guide h2 {
+  margin-top: 0;
+  color: #2c5282;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.usage-steps {
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+  color: #2d3748;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.usage-steps li + li {
+  margin-top: 0.75rem;
+}
+
+.usage-tip {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  text-align: center;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .image-options-container {
@@ -281,22 +321,38 @@
     max-width: 300px;
   }
 
-  .camera-container, .image-result-container {
+  .camera-container,
+  .image-result-container {
     padding: 1rem;
   }
 
-  .camera-video, .captured-image {
+  .camera-video,
+  .captured-image {
     max-width: 100%;
   }
 
-  .camera-controls, .image-controls {
+  .camera-controls,
+  .image-controls {
     flex-direction: column;
     width: 100%;
     max-width: 300px;
   }
 
-  .capture-button, .close-camera-button, .retake-button, .clear-button, .upload-button {
+  .capture-button,
+  .close-camera-button,
+  .retake-button,
+  .clear-button,
+  .upload-button {
     width: 100%;
     min-width: auto;
+  }
+
+  .usage-guide {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+
+  .usage-steps {
+    font-size: 1rem;
   }
 }

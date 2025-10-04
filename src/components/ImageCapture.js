@@ -44,23 +44,6 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
     }
   };
 
-  const clearImage = () => {
-    setPreview(null);
-    setCapturedFile(null);
-    setCaptureMethod(null);
-    // Close camera if open
-    if (isCameraOpen) {
-      closeCamera();
-    }
-    // Reset file inputs using refs
-    if (cameraInputRef.current) {
-      cameraInputRef.current.value = '';
-    }
-    if (uploadInputRef.current) {
-      uploadInputRef.current.value = '';
-    }
-  };
-
   const handleAnalyze = () => {
     if (capturedFile && onImageCapture) {
       onImageCapture(capturedFile);
