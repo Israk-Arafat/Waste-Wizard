@@ -1,3 +1,88 @@
 @import './common.css';
 
-/* Add any home-specific styles here */
+/* Image options container */
+.image-options-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.image-option-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #eaeaea;
+}
+
+.image-option-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+  color: #4CAF50;
+}
+
+.image-option-card h2 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.image-option-card p {
+  margin: 0;
+  margin-bottom: 1.5rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+.image-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 1rem;
+  border: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.image-button:hover {
+  background-color: #45a049;
+}
+
+.image-button input[type="file"] {
+  display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .image-options-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .image-option-card {
+    width: 100%;
+    max-width: 300px;
+  }
+}
