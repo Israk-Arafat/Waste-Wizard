@@ -1,4 +1,4 @@
-.App {
+.Rules {
   text-align: center;
 }
 
@@ -26,11 +26,6 @@
 .hamburger-menu {
   margin-right: 1rem;
   position: relative;
-  position: relative;
-  order: 1;
-  cursor: pointer;
-  padding: 2 rem;
-  font-family: Georgia, serif;
 }
 
 .hamburger {
@@ -39,8 +34,7 @@
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
-  padding: 2 rem;
-  font-family: Georgia, serif;
+  padding: 0.5rem;
 }
 
 .dropdown {
