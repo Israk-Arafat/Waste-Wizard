@@ -1,6 +1,7 @@
 import React from 'react';
 import WasteAnalyzer from '../components/WasteAnalyzer';
 import ErrorBoundary from '../components/ErrorBoundary';
+import Chatbot from '../components/Chatbot';
 import './css/home.css';
 
 function App() {
@@ -96,6 +97,7 @@ function App() {
         </ol>
         <p className="usage-tip">Tip: Clear, well-lit photos help the model give more accurate advice.</p>
       </section>
+      <Chatbot />
     </>
   );
 }
