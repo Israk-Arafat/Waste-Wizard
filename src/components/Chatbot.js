@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import chatbotService from '../services/chatbotService';
 import './css/Chatbot.css';
+import chatbotLogo from '../assets/chatbot.png';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -124,7 +125,10 @@ const Chatbot = () => {
           {/* Header */}
           <div className="chatbot-header">
             <div className="chatbot-header-info">
-              <h3>Recycling Assistant</h3>
+              <div className="chatbot-title">
+                <img src={chatbotLogo} alt="Chatbot" className="chatbot-logo" />
+                <h3>Recycling Assistant</h3>
+              </div>
               <span className="chatbot-status">Online</span>
             </div>
             <div className="chatbot-header-actions">
@@ -135,8 +139,11 @@ const Chatbot = () => {
                 title="Clear chat"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <polyline points="3,6 5,6 21,6"></polyline>
-                  <path d="M19,6V20A2,2 0 0,1 17,20H7A2,2 0 0,1 5,20V6M8,6V4A2,2 0 0,1 10,4H14A2,2 0 0,1 16,4V6"></path>
+                  <path d="M3 6h18"></path>
+                  <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path>
+                  <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path>
+                  <line x1="10" y1="11" x2="10" y2="17"></line>
+                  <line x1="14" y1="11" x2="14" y2="17"></line>
                 </svg>
               </button>
               <button 
