@@ -32,10 +32,6 @@ const WasteAnalyzer = () => {
 
   return (
     <div className="waste-analyzer">
-      <div className="analyzer-header">
-        <h1>Waste Classification</h1>
-        <p>Take or upload a photo to instantly classify your item</p>
-      </div>
 
       {error && (
         <div className="error-message">

@@ -27,7 +27,7 @@
 }
 
 .brand-link {
-  color: white;
+  color: #272626;
   text-decoration: none;
   font-size: 24px;
   font-weight: 700;
@@ -36,7 +36,7 @@
 }
 
 .brand-link:hover {
-  color: #f0f0f0;
+  color: #272626;
 }
 
 .hamburger-menu {
@@ -51,7 +51,7 @@
 .hamburger {
   background: none;
   border: none;
-  color: white;
+  color: #272626;
   font-size: 24px;
   cursor: pointer;
   padding: 8px;
@@ -60,7 +60,8 @@
 }
 
 .hamburger:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(102, 102, 102, 0.1);
+  color: #555555;
 }
 
 .dropdown-content {
