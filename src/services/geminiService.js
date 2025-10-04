@@ -30,7 +30,20 @@ class GeminiService {
       // Convert image to base64
       const imageData = await this.fileToGenerativePart(imageFile);
       
-  const prompt = this.createPrompt(useUMaineRules);
+      const prompt = `Analyze this image and determine if the item should be disposed of as:
+      - RECYCLE
+      - BOTTLE DEPOSIT
+      - TRASH  
+      - COMPOST
+
+
+      Respond with ONLY the category (RECYCLE, TRASH, or COMPOST) followed by a single short sentence explaining why.
+      
+      Format your response exactly like this:
+      CATEGORY: [RECYCLE/TRASH/COMPOST/BOTTLE DEPOSIT]
+      REASON: [One short sentence explaining why]
+      
+      Be decisive and give only one category.`;
 
       const result = await this.model.generateContent([prompt, imageData]);
       const response = await result.response;
