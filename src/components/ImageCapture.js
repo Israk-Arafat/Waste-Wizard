@@ -173,7 +173,7 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
               className="capture-button"
               disabled={isAnalyzing}
             >
-              📷 Capture Photo
+              Capture Photo
             </button>
             <button 
               onClick={closeCamera} 
