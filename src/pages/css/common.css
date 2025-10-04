@@ -1,12 +1,13 @@
 /* Common styles for the application */
-.App, .Rules {
+.App,
+.Rules {
   text-align: center;
 }
 
 /* Navigation bar styles */
 .navbar {
-  background-color: #4CAF50;
-  padding: 0.0rem 1rem;
+  background-color: #4caf50;
+  padding: 0rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
@@ -86,7 +87,7 @@
   background-color: #ffffff;
   min-width: 200px;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   z-index: 1;
   margin-top: 0.5rem;
   overflow: hidden;
@@ -122,15 +123,10 @@
 
 .dropdown-content a:hover {
   background-color: #f8f8f8;
-  color: #4CAF50;
+  color: #4caf50;
   padding-left: 28px;
 }
 
 .show-dropdown {
   display: block;
-}
-
-/* Content area styles */
-.content {
-  padding: 2rem;
 }
