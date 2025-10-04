@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './css/Navigation.css';
 import logo from '../assets/Logo_artist-Israk.png';
 
@@ -28,22 +28,48 @@ const Navigation = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo-container">
-        <Link to="/" onClick={handleMenuLinkClick}>
-          <img src={logo} alt="WasteWizard Logo" className="navbar-logo" />
-        </Link>
-      </div>
-      <div className="navbar-brand">
+      <div className="navbar-branding">
         <Link to="/" className="brand-link" onClick={handleMenuLinkClick}>
-          WasteWizard
+          <img src={logo} alt="WasteWizard Logo" className="navbar-logo" />
+          <span className="brand-name">WasteWizard</span>
         </Link>
+        <div className="navbar-links">
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+            onClick={handleMenuLinkClick}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/rules"
+            className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+            onClick={handleMenuLinkClick}
+          >
+            Rules
+          </NavLink>
+        </div>
       </div>
       <div className="hamburger-menu">
         <div className="dropdown">
           <button className="hamburger" onClick={toggleMenu}>☰</button>
           <div className={`dropdown-content ${isMenuOpen ? 'show-dropdown' : ''}`}>
-            <Link to="/" onClick={handleMenuLinkClick}>Home</Link>
-            <Link to="/rules" onClick={handleMenuLinkClick}>Rules</Link>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+              onClick={handleMenuLinkClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/rules"
+              className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+              onClick={handleMenuLinkClick}
+            >
+              Rules
+            </NavLink>
           </div>
         </div>
       </div>
