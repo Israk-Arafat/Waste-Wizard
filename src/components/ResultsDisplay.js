@@ -1,5 +1,5 @@
 import React from 'react';
-import './ResultsDisplay.css';
+import './css/ResultsDisplay.css';
 
 const ResultsDisplay = ({ result, onNewAnalysis }) => {
   if (!result) return null;
