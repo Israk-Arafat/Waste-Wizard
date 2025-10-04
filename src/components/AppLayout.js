@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation';
+import Footer from './Footer';
 import '../pages/css/home.css';
 import UMaineModeContext from '../context/UMaineModeContext';
 
@@ -17,9 +18,10 @@ const AppLayout = () => {
     <UMaineModeContext.Provider value={contextValue}>
       <div className={`App ${isUMaineMode ? 'umaine-theme' : 'global-theme'}`}>
         <Navigation />
-        <div className="content">
+        <main className="content" role="main">
           <Outlet />
-        </div>
+        </main>
+        <Footer />
       </div>
     </UMaineModeContext.Provider>
   );

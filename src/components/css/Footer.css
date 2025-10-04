@@ -1,0 +1,154 @@
+.app-footer {
+  background: linear-gradient(135deg, #1f472f, #2e7d32);
+  color: #f2fdf5;
+  padding: 1.5rem 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.app-footer a {
+  color: inherit;
+}
+
+.footer-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-branding {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-branding h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-branding p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  max-width: 24ch;
+}
+
+.footer-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+  color: #c8f7d8;
+}
+
+.footer-updates {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.footer-updates p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(12, 52, 22, 0.22);
+}
+
+.footer-cta:hover,
+.footer-cta:focus {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.footer-meta {
+  margin-left: auto;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* UMaine theme adjustments */
+.umaine-theme .app-footer {
+  background: linear-gradient(135deg, #1b2a6b, #2643ad);
+  color: #eaf1ff;
+}
+
+.umaine-theme .footer-link:hover,
+.umaine-theme .footer-link:focus {
+  color: #dbe8ff;
+}
+
+.umaine-theme .footer-cta {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 12px rgba(12, 24, 64, 0.25);
+}
+
+.umaine-theme .footer-cta:hover,
+.umaine-theme .footer-cta:focus {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+@media (max-width: 900px) {
+  .footer-inline {
+    gap: 1rem;
+  }
+
+  .footer-meta {
+    flex-basis: 100%;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-footer {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .footer-branding {
+    flex-basis: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-branding p {
+    font-size: 0.9rem;
+  }
+
+  .footer-links {
+    flex-basis: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-updates {
+    flex-basis: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
