@@ -3,11 +3,13 @@ import ImageCapture from './ImageCapture';
 import ResultsDisplay from './ResultsDisplay';
 import geminiService from '../services/geminiService';
 import './css/WasteAnalyzer.css';
+import { useUMaineMode } from '../context/UMaineModeContext';
 
 const WasteAnalyzer = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const { isUMaineMode } = useUMaineMode();
 
   const handleImageCapture = async (imageFile) => {
     try {
@@ -15,7 +17,9 @@ const WasteAnalyzer = () => {
       setError(null);
       setResult(null);
 
-      const analysisResult = await geminiService.analyzeWasteItem(imageFile);
+      const analysisResult = await geminiService.analyzeWasteItem(imageFile, {
+        useUMaineRules: isUMaineMode
+      });
       setResult(analysisResult);
     } catch (err) {
       console.error('Analysis error:', err);

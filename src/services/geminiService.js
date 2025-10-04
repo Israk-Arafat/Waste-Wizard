@@ -2,8 +2,6 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 class GeminiService {
   constructor() {
-    // You'll need to set your API key as an environment variable
-    // Create a .env file in your project root with: REACT_APP_GEMINI_API_KEY=your_api_key_here
     this.apiKey = process.env.REACT_APP_GEMINI_API_KEY;
     
     if (!this.apiKey) {
@@ -15,11 +13,13 @@ class GeminiService {
     this.model = this.genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   }
 
-  async analyzeWasteItem(imageFile) {
+  async analyzeWasteItem(imageFile, options = {}) {
     try {
       if (!this.model) {
         throw new Error('Gemini API not initialized. Please check your API key.');
       }
+
+      const { useUMaineRules = false } = options;
 
       // Validate file type
       const supportedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
@@ -30,19 +30,7 @@ class GeminiService {
       // Convert image to base64
       const imageData = await this.fileToGenerativePart(imageFile);
       
-      const prompt = `Analyze this image and determine if the item should be disposed of as:
-      - RECYCLE
-      - TRASH  
-      - COMPOST
-      - BOTTLE DEPOSIT
-
-      Respond with ONLY the category (RECYCLE, TRASH, or COMPOST) followed by a single short sentence explaining why.
-      
-      Format your response exactly like this:
-      CATEGORY: [RECYCLE/TRASH/COMPOST/BOTTLE DEPOSIT]
-      REASON: [One short sentence explaining why]
-      
-      Be decisive and give only one category.`;
+  const prompt = this.createPrompt(useUMaineRules);
 
       const result = await this.model.generateContent([prompt, imageData]);
       const response = await result.response;
@@ -93,6 +81,8 @@ class GeminiService {
           category = 'COMPOST';
         } else if (upperText.includes('BOTTLE DEPOSIT')) {
           category = 'BOTTLE DEPOSIT';
+        } else if (upperText.includes('E-WASTE') || upperText.includes('EWASTE')) {
+          category = 'E-WASTE';
         } else {
           category = 'TRASH';
         }
@@ -113,6 +103,42 @@ class GeminiService {
         reason: 'Unable to determine proper disposal method'
       };
     }
+  }
+
+  createPrompt(useUMaineRules) {
+    const basePrompt = `Analyze this image and determine the single best disposal option for the item. Choose one of the following categories:
+- RECYCLE
+- TRASH  
+- COMPOST
+- BOTTLE DEPOSIT${useUMaineRules ? '\n- E-WASTE' : ''}
+
+Respond with ONLY the category followed by one concise sentence that cites the key reason.
+
+Use this exact format:
+CATEGORY: [RECYCLE/TRASH/COMPOST/BOTTLE DEPOSIT${useUMaineRules ? '/E-WASTE' : ''}]
+REASON: [One short sentence explaining why]
+
+Do not add extra lines or bullet points.`;
+
+    if (!useUMaineRules) {
+      return `${basePrompt}\n\nIf you are unsure, choose the safest disposal method based on common U.S. recycling practices.`;
+    }
+
+    const umaineGuidelines = `When UMaine mode is active, you MUST follow the University of Maine (Orono campus) recycling rules:
+- Recyclable plastics must be rigid #1-7 only. Reject plastic film, Styrofoam, or plastic utensils as TRASH.
+- Empty and rinse all food or beverage containers before recycling.
+- Glass: only bottles and jars with food/beverage residue removed.
+- Metals: aluminum cans/foil/pie plates (clean), steel/tin cans, and empty aerosol cans are recyclable.
+- Paperboard, corrugated cardboard (tape/staples OK), envelopes, opened mail, newspapers, magazines, and clean white/colored paper are all recyclable. No paper towels or tissues.
+- Bottle deposits apply to redeemable beverage containers eligible under Maine's return system.
+- If the item is electronic equipment, computer parts, AV gear, or similar e-waste, classify it as E-WASTE and direct users to contact UM IT at 1-800-696-4357 or help@maine.edu for GiveITGetIT recycling.
+- If the item is wearable clothing or textiles, recommend donation options such as the Black Bear Exchange (https://umaine.edu/volunteer/BBE/) or the Orono Thrift Store (https://www.facebook.com/oronothrift/). Mention any restrictions (no children's clothing, housewares, or bedding at Black Bear Exchange).
+- Compost only applies to organic material suitable for UMaine compost streams.
+- When none of the above apply, choose TRASH.
+
+Reference UMaine explicitly in your reason when it influences the guidance.`;
+
+    return `${basePrompt}\n\n${umaineGuidelines}`;
   }
 }
 

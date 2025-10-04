@@ -73,6 +73,36 @@
   margin-right: auto;
 }
 
+.result-note {
+  margin: 0 auto 35px;
+  max-width: 620px;
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  border-radius: 14px;
+  padding: 16px 22px;
+  text-align: left;
+  color: #0f172a;
+  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.12);
+}
+
+.result-note h4 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0369a1;
+}
+
+.result-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.result-note a {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
 .new-analysis-button {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -109,6 +139,14 @@
 
 .result-card[style*="border-color: rgb(244, 67, 54)"] {
   background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+}
+
+.result-card[style*="border-color: rgb(14, 165, 233)"] {
+  background: linear-gradient(135deg, #f1faff 0%, #e0f2fe 100%);
+}
+
+.result-card[style*="border-color: rgb(245, 158, 11)"] {
+  background: linear-gradient(135deg, #fff8eb 0%, #fde8c8 100%);
 }
 
 /* Responsive Design */
