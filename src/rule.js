@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './rule.css';
+import logo from './assets/Logo_artist-Israk.png';
+import rulesPoster from './assets/rule.png';
 
 function Rules() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,7 +27,7 @@ function Rules() {
       <nav className="navbar">
         <div className="navbar-logo-container">
           <a href="/">
-            <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="WasteWizard Logo" className="navbar-logo" />
+            <img src={logo} alt="WasteWizard Logo" className="navbar-logo" />
           </a>
         </div>
         <div className="navbar-brand">
@@ -77,7 +79,7 @@ function Rules() {
               </div>
             </div>
             <div className="rules-poster">
-              <img src={process.env.PUBLIC_URL + '/images/rule.png'} alt="UMaine Recycling Rules Poster" className="rules-poster-image" />
+              <img src={rulesPoster} alt="UMaine Recycling Rules Poster" className="rules-poster-image" />
             </div>
           </div>
         </div>

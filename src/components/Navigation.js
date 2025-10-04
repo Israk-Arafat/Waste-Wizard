@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navigation.css';
+import logo from '../assets/Logo_artist-Israk.png';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ const Navigation = () => {
     <nav className="navbar">
       <div className="navbar-logo-container">
         <a href="/">
-          <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="WasteWizard Logo" className="navbar-logo" />
+          <img src={logo} alt="WasteWizard Logo" className="navbar-logo" />
         </a>
       </div>
       <div className="navbar-brand">

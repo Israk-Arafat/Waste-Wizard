@@ -68,30 +68,41 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
   };
 
   const handleRetake = () => {
-    // Simply clear everything and go back to main selection
+    const previousMethod = captureMethod;
+
     setPreview(null);
     setCapturedFile(null);
-    setCaptureMethod(null);
-    
-    // Close camera if open
-    if (isCameraOpen) {
-      closeCamera();
-    }
-    
-    // Reset file inputs
-    if (cameraInputRef.current) {
-      cameraInputRef.current.value = '';
-    }
-    if (uploadInputRef.current) {
-      uploadInputRef.current.value = '';
-    }
-  };
 
-//   const handleCameraClick = () => {
-//     if (cameraInputRef.current && !isAnalyzing) {
-//       cameraInputRef.current.click();
-//     }
-//   };
+    if (previousMethod === 'camera') {
+      if (uploadInputRef.current) {
+        uploadInputRef.current.value = '';
+      }
+      openCamera();
+    } else {
+      if (isCameraOpen) {
+        closeCamera();
+      }
+
+      if (cameraInputRef.current) {
+        cameraInputRef.current.value = '';
+      }
+
+      if (previousMethod === 'upload' && uploadInputRef.current) {
+        uploadInputRef.current.value = '';
+        if (!isAnalyzing) {
+          setTimeout(() => {
+            if (uploadInputRef.current) {
+              uploadInputRef.current.click();
+            }
+          }, 0);
+        }
+      } else if (uploadInputRef.current) {
+        uploadInputRef.current.value = '';
+      }
+    }
+
+    setCaptureMethod(null);
+  };
 
   const handleUploadClick = () => {
     if (uploadInputRef.current && !isAnalyzing) {
@@ -207,7 +218,7 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
               disabled={isAnalyzing}
               type="button"
             >
-              📷 Open Camera
+              Open Camera
             </button>
           </div>
 
@@ -235,7 +246,7 @@ const ImageCapture = ({ onImageCapture, isAnalyzing }) => {
               disabled={isAnalyzing}
               type="button"
             >
-              📁 Select Image
+              Select Image
             </button>
           </div>
         </div>
