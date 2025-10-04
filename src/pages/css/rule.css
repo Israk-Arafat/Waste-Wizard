@@ -12,6 +12,11 @@
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
+  transition: color 0.3s ease;
+}
+
+.umaine-theme .rules-container h1 {
+  color: #1e3a8a;
 }
 
 .rules-flex-container {
@@ -67,6 +72,11 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
+  transition: color 0.3s ease;
+}
+
+.umaine-theme .rule-card h2 {
+  color: #3b82f6;
 }
 
 .rule-card p {
@@ -80,6 +90,12 @@
   grid-column: 1 / -1;
   background-color: #f0f9ff;
   border: 2px solid #4CAF50;
+  transition: all 0.3s ease;
+}
+
+.umaine-theme .system-card {
+  background-color: #eff6ff;
+  border: 2px solid #3b82f6;
 }
 
 /* Responsive design */
