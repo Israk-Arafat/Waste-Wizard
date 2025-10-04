@@ -1,6 +1,25 @@
+import React, { useState } from 'react';
 import './home.css';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Close menu when clicking outside
+  const closeMenu = (e) => {
+    if (!e.target.closest('.hamburger-menu')) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('click', closeMenu);
+    return () => document.removeEventListener('click', closeMenu);
+  }, []);
+
   return (
     <div className="App">
       <nav className="navbar">
@@ -14,8 +33,8 @@ function App() {
         </div>
         <div className="hamburger-menu">
           <div className="dropdown">
-            <button className="hamburger">☰</button>
-            <div className="dropdown-content">
+            <button className="hamburger" onClick={toggleMenu}>☰</button>
+            <div className={`dropdown-content ${isMenuOpen ? 'show-dropdown' : ''}`}>
               <a href="/">Home</a>
               <a href="/rules">Rules</a>
             </div>
