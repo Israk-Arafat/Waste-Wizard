@@ -19,7 +19,6 @@ class GeminiService {
         throw new Error('Gemini API not initialized. Please check your API key.');
       }
 
-      const { useUMaineRules = false } = options;
 
       // Validate file type
       const supportedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
