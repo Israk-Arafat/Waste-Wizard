@@ -20,12 +20,6 @@ const Footer = () => {
 
         <div className="footer-updates">
           <p>Have recycling tips or feedback?</p>
-          <a
-            className="footer-cta"
-            href="mailto:wastewizardapp@gmail.com?subject=WasteWizard%20Feedback"
-          >
-            Share your ideas
-          </a>
         </div>
 
         <span className="footer-meta">
